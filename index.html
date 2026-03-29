@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoFlo — Client Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23C9A84C'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== PASSWORD GATE ===== -->
+  <div class="gate" id="gate">
+    <div class="gate-glow"></div>
+    <div class="gate-box">
+      <div class="gate-logo">AUTO<span>FLO</span></div>
+      <p class="gate-sub">Client Operations Dashboard</p>
+      <form id="gateForm">
+        <input type="password" id="gatePass" placeholder="Access code" autocomplete="off">
+        <button type="submit">Unlock Dashboard</button>
+      </form>
+      <p class="gate-err" id="gateErr"></p>
+      <p class="gate-foot">autoflo.org</p>
+    </div>
+  </div>
+
+  <!-- ===== GOLD TOP LINE ===== -->
+  <div class="topline"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="h-left">
+      <span class="logo">AUTO<span class="gold">FLO</span></span>
+      <span class="h-pipe"></span>
+      <span class="h-sub">Client Dashboard</span>
+    </div>
+    <div class="h-right">
+      <button class="h-btn" id="btnExport" title="Export Data">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v9M4 7l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="h-btn" id="btnImport" title="Import Data">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 11V2M4 6l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="btn-gold" id="btnAdd">+ New Client</button>
+    </div>
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val" id="sTotal">0</div>
+      <div class="stat-lbl">Total Clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val gold" id="sActive">0</div>
+      <div class="stat-lbl">Active</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val green" id="sComplete">0</div>
+      <div class="stat-lbl">Completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="sAvg">0%</div>
+      <div class="stat-lbl">Avg Progress</div>
+    </div>
+  </div>
+
+  <!-- ===== SEARCH BAR ===== -->
+  <div class="toolbar">
+    <div class="search-box">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input type="text" id="search" placeholder="Search clients...">
+    </div>
+    <div class="client-count" id="clientCount"></div>
+  </div>
+
+  <!-- ===== MAIN GRID ===== -->
+  <main class="main">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">
+      <div class="empty-visual">
+        <div class="empty-ring r1"></div>
+        <div class="empty-ring r2"></div>
+        <div class="empty-ring r3"></div>
+        <div class="empty-plus">+</div>
+      </div>
+      <h3>No clients yet</h3>
+      <p>Add your first client to start tracking fulfillment.</p>
+    </div>
+  </main>
+
+  <!-- ===== DETAIL PANEL ===== -->
+  <div class="overlay" id="detailOv">
+    <div class="panel">
+      <div class="panel-top">
+        <button class="p-back" id="btnBack"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+        <button class="p-del" id="btnDel">Delete Client</button>
+      </div>
+      <div class="panel-body" id="panelBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== ADD CLIENT MODAL ===== -->
+  <div class="overlay" id="modalOv">
+    <div class="modal">
+      <div class="m-top">
+        <h2>New Client</h2>
+        <button class="m-x" id="btnX">&times;</button>
+      </div>
+      <form id="form">
+        <div class="fg"><label>Client Name *</label><input type="text" id="fName" required placeholder="e.g. Joel"></div>
+        <div class="fg"><label>Business Name *</label><input type="text" id="fBiz" required placeholder="e.g. Backyard Blues Pools"></div>
+        <div class="row2">
+          <div class="fg"><label>Phone</label><input type="tel" id="fPhone" placeholder="(615) 555-0123"></div>
+          <div class="fg"><label>Email</label><input type="email" id="fEmail" placeholder="joel@example.com"></div>
+        </div>
+        <div class="fg"><label>Notes</label><textarea id="fNotes" rows="3" placeholder="Initial notes..."></textarea></div>
+        <button type="submit" class="btn-submit">Add Client</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Hidden import input -->
+  <input type="file" id="fileIn" accept=".json" style="display:none">
+
+  <script src="app.js"></script>
+</body>
+</html>
