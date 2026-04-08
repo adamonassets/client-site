@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAA Ambassador Program | United All Around</title>
+  <meta name="description" content="Join the United All Around Ambassador Team. Get free gymnastics leotards, a discount code, and represent a brand loved by 1,500+ gymnasts.">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="logo.png" alt="United All Around">
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Join the <span>UAA Ambassador</span> Team</h1>
+    <p>Represent a brand that 1,500+ gymnasts already love. Get free leotards, your own discount code, and shine on the gram.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Apply Below</h3>
+        <p>Pick your favorite leotards, fill out the form, and hit submit.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Get Your Leos</h3>
+        <p>We ship up to 2 free leotards straight to your door. No catch.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Post &amp; Shine</h3>
+        <p>Share 2 posts or reels wearing your leo and tag @united_all_around.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEOTARD SELECTION -->
+  <section class="leotard-section">
+    <h2 class="section-title">Pick Your Leotards</h2>
+    <p class="section-subtitle">Select up to 2 leotards you want shipped to you. Click to select.</p>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Styles</button>
+      <button class="filter-btn" data-filter="florals">Florals &amp; Nature</button>
+      <button class="filter-btn" data-filter="bold">Bold &amp; Vibrant</button>
+      <button class="filter-btn" data-filter="elegant">Elegant &amp; Classic</button>
+    </div>
+
+    <div class="leotard-grid" id="leotardGrid"></div>
+
+    <div class="selections-section">
+      <div class="selections-box" id="selectionsBox">
+        <h3>Your Selections — Pick a size for each</h3>
+        <div id="selectionItems"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIZING CHART -->
+  <section class="sizing-section">
+    <h2 class="section-title">Sizing Chart</h2>
+    <p class="section-subtitle">All measurements in inches. When in between sizes, go one size up.</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Torso-Girth (")</th>
+            <th>Chest (")</th>
+            <th>Waist (")</th>
+            <th>Hip (")</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>CS</strong></td><td>39-41</td><td>22-24</td><td>19-20</td><td>22-24</td></tr>
+          <tr><td><strong>CM</strong></td><td>42-44</td><td>24-26</td><td>20-22</td><td>24-26</td></tr>
+          <tr><td><strong>CL</strong></td><td>44-47</td><td>26-28</td><td>21-23</td><td>26-28</td></tr>
+          <tr><td><strong>AXS</strong></td><td>47-50</td><td>28-30</td><td>23-24</td><td>28-30</td></tr>
+          <tr><td><strong>AS</strong></td><td>50-53</td><td>30-33</td><td>24-25</td><td>30-33</td></tr>
+          <tr><td><strong>AM</strong></td><td>53-57</td><td>33-36</td><td>25-27</td><td>33-36</td></tr>
+          <tr><td><strong>AL</strong></td><td>57-59</td><td>36-38</td><td>27-29</td><td>36-39</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="size-tip">CS = Child Small &nbsp;|&nbsp; CM = Child Medium &nbsp;|&nbsp; CL = Child Large &nbsp;|&nbsp; AXS = Adult XS &nbsp;|&nbsp; AS = Adult Small &nbsp;|&nbsp; AM = Adult Medium &nbsp;|&nbsp; AL = Adult Large</p>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section class="form-section">
+    <h2 class="section-title">Your Information</h2>
+    <p class="section-subtitle">Tell us about you so we can ship your leotards.</p>
+
+    <div class="form-card">
+      <form id="ambassadorForm">
+        <!-- Formsubmit config -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="form-group">
+          <label>Full Name <span class="required">*</span></label>
+          <input type="text" name="Full Name" placeholder="Jane Smith" required>
+        </div>
+
+        <div class="form-group">
+          <label>Instagram Handle <span class="required">*</span></label>
+          <div class="input-prefix">
+            <span>@</span>
+            <input type="text" name="Instagram Handle" placeholder="your_handle" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address <span class="required">*</span></label>
+          <input type="email" name="Email" placeholder="you@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Street Address <span class="required">*</span></label>
+          <input type="text" name="Street Address" placeholder="123 Main Street" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>City <span class="required">*</span></label>
+            <input type="text" name="City" placeholder="Chicago" required>
+          </div>
+          <div class="form-group">
+            <label>State <span class="required">*</span></label>
+            <select name="State" id="state" required>
+              <option value="">State</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>ZIP Code <span class="required">*</span></label>
+          <input type="text" name="ZIP Code" placeholder="60601" required pattern="[0-9]{5}" maxlength="5">
+        </div>
+
+        <!-- TERMS -->
+        <div class="terms-section">
+          <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:8px;">
+            Please review our
+            <button type="button" class="terms-toggle" onclick="openModal('termsModal')">Ambassador Agreement</button>
+            and
+            <button type="button" class="terms-toggle" onclick="openModal('privacyModal')">Privacy Policy</button>
+            before submitting.
+          </p>
+
+          <div class="terms-checkbox">
+            <input type="checkbox" id="agreeTerms" required>
+            <label for="agreeTerms">I agree to the Ambassador Agreement and Privacy Policy. I understand I will post at least 2 photos or reels featuring UAA leotards within 30 days of receiving my product.</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+        <div id="formMessage" class="form-message"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- TERMS MODAL -->
+  <div class="modal-overlay" id="termsModal">
+    <div class="modal">
+      <h2>Ambassador Agreement</h2>
+
+      <h3>1. Program Overview</h3>
+      <p>United All Around ("UAA") invites selected individuals ("Ambassadors") to participate in our Ambassador Program. By submitting this application and accepting these terms, you agree to the following conditions.</p>
+
+      <h3>2. Eligibility</h3>
+      <ul>
+        <li>You must have a public Instagram account.</li>
+        <li>Applicants who are minors must have consent from a parent or legal guardian.</li>
+        <li>You must be located in the United States.</li>
+      </ul>
+
+      <h3>3. What You Receive</h3>
+      <ul>
+        <li>Up to 2 complimentary UAA gymnastics leotards.</li>
+        <li>A unique discount code (15% off) to share with your followers.</li>
+        <li>Potential features on UAA's official Instagram and website.</li>
+      </ul>
+
+      <h3>4. Your Commitments</h3>
+      <ul>
+        <li>Post a minimum of 2 Instagram posts (feed posts or Reels) featuring UAA leotards within 30 days of receiving your product.</li>
+        <li>Tag @united_all_around in each post and caption.</li>
+        <li>Include #UnitedAllAround and #UAAgymnast hashtags.</li>
+        <li>Your account must remain public during the ambassador period.</li>
+      </ul>
+
+      <h3>5. Content Rights</h3>
+      <p>By posting content featuring UAA products, you grant UAA a non-exclusive, royalty-free, worldwide license to use, reproduce, modify, and display your content for marketing purposes including social media, website, advertising, and print materials. You retain ownership of your original content.</p>
+
+      <h3>6. Compensation</h3>
+      <p>This program provides product-based compensation only. No monetary payment is guaranteed or implied unless separately agreed upon in writing.</p>
+
+      <h3>7. Product Terms</h3>
+      <ul>
+        <li>Leotards provided are complimentary and non-returnable.</li>
+        <li>Colors and appearance may vary slightly from images shown on this page.</li>
+        <li>Products are for personal use and may not be resold.</li>
+      </ul>
+
+      <h3>8. Termination</h3>
+      <p>Either party may end the ambassador relationship at any time with no obligation. UAA reserves the right to remove ambassadors who do not meet posting requirements or whose content does not align with brand values.</p>
+
+      <h3>9. Disclaimer</h3>
+      <p>UAA makes no guarantees regarding follower growth, engagement, or sales resulting from ambassador activities.</p>
+
+      <h3>10. Modifications</h3>
+      <p>UAA reserves the right to modify these terms at any time. Continued participation constitutes acceptance of updated terms.</p>
+
+      <p style="margin-top:16px;font-size:0.85rem;color:var(--grey);">Last updated: April 2026</p>
+
+      <button class="modal-close" onclick="closeModal('termsModal')">Got It</button>
+    </div>
+  </div>
+
+  <!-- PRIVACY MODAL -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal">
+      <h2>Privacy Policy</h2>
+
+      <h3>1. Information We Collect</h3>
+      <p>When you submit this ambassador application, we collect:</p>
+      <ul>
+        <li>Full name</li>
+        <li>Email address</li>
+        <li>Instagram handle</li>
+        <li>Shipping address (street, city, state, ZIP code)</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <ul>
+        <li>To process and review your ambassador application.</li>
+        <li>To ship complimentary products to you.</li>
+        <li>To communicate with you about the ambassador program.</li>
+        <li>To track program activity and performance.</li>
+      </ul>
+
+      <h3>3. Data Sharing</h3>
+      <p>We do not sell, rent, or trade your personal information to third parties. We may share your shipping address with fulfillment and shipping carriers solely for the purpose of delivering products to you.</p>
+
+      <h3>4. Data Security</h3>
+      <p>We take reasonable measures to protect your personal information from unauthorized access, disclosure, or destruction. However, no method of electronic transmission or storage is 100% secure.</p>
+
+      <h3>5. Data Retention</h3>
+      <p>We retain your information for the duration of your participation in the ambassador program and for a reasonable period afterward for record-keeping purposes.</p>
+
+      <h3>6. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us at adam@unitedallaround.com.</p>
+
+      <h3>7. Contact Us</h3>
+      <p>For questions about this privacy policy or your personal data, email us at adam@unitedallaround.com.</p>
+
+      <p style="margin-top:16px;font-size:0.85rem;color:var(--grey);">Last updated: April 2026</p>
+
+      <button class="modal-close" onclick="closeModal('privacyModal')">Got It</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 United All Around. All rights reserved.</p>
+    <p style="margin-top:8px;">
+      <a href="https://unitedallaround.com" target="_blank">Shop</a> &nbsp;|&nbsp;
+      <a href="https://instagram.com/united_all_around" target="_blank">Instagram</a> &nbsp;|&nbsp;
+      <a href="mailto:adam@unitedallaround.com">Contact</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
